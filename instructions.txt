@@ -1,0 +1,23 @@
+#centroids shape (50, 10000) # 50 clusters centroids of 10000 dimensions
+    #embedding vectors shape (14999, 10000)
+    # make an array of 14999 embeddings with 50 features each, shape [14999, 50]
+    # for each embedding vector, calculate the distance from each of the 50 centroids
+    #embedding_vectors_reshaped = tf.expand_dims(embedding_vectors, axis=1)  # Shape (14999, 1, 10000)
+    #distances = tf.zeros((embedding_vectors.shape[0], centroids.shape[0]), dtype=tf.dtypes.float32)
+
+    #centroids = tf.expand_dims(centroids, axis=0)  # Shape (1, 50, 10000)
+    # Compute the Euclidean distance between each row in 'a' and all rows in 'b'
+    # # The result will be a tensor 'T' of shape (14999, 50)
+    # for i in range(embedding_vectors.shape[0]):
+    #     for j in range(centroids.shape[1]):
+    #         distances[i][j] = tf.norm(embedding_vectors[i] - centroids[j], axis=-1)
+    #distances = np.linalg.norm(embedding_vectors_dense[:, np.newaxis, :] - centroids, axis=-1)
+    #cluster_labels = np.zeros(len(embedding_vectors))
+
+    #softmaxed_distances = np.exp(distances) / np.sum(np.exp(distances), axis=1, keepdims=True)
+
+    # import debugpy
+    # debugpy.listen(5679)
+    # print("Waiting for debugger attach")
+    # debugpy.wait_for_client()
+    # print("Debugger attached")
