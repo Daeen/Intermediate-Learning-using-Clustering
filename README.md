@@ -1,8 +1,8 @@
 # Intermediate Training Using Clustering
 
-Code to reproduce the BERT intermediate training experiments from [Shnarch et al. (2022)](#reference). 
+This experiment is based on the paper [Cluster & Tune: Boost Cold Start Performance in Text Classification](https://aclanthology.org/2022.acl-long.526/). 
 
-Using this repository you can: 
+To use this repository you can: 
 
 (1) Download the datasets used in the paper;
 
@@ -58,6 +58,10 @@ For example:
 
 ```python run_experiment.py --train_file datasets/yahoo_answers/train.csv --eval_file datasets/yahoo_answers/test.csv --num_clusters 50 --labeling_budget 64 --finetuning_epochs 10 --inter_training_epochs 1 --random_seed 0```
 
+To run the soft-label version, run:
+```python run_experiment_2.py --train_file datasets/yahoo_answers/train.csv --eval_file datasets/yahoo_answers/test.csv --num_clusters 50 --labeling_budget 64 --finetuning_epochs 10 --inter_training_epochs 1 --random_seed 0```
+
+
 The results of the experimental run (accuracy for BERT with and without the intermediate task over the `eval_file`) are written both to the screen, and to `output/results.csv`. 
 
 Multiple experiments can safely write in parallel to the same `output/results.csv` file - each new result is appended to the file. In addition, for every new result, an aggregation of all the results so far is written to `output/aggregated_results.csv`. This aggregation reflects the mean of all runs for each experimental setting (i.e. with/without intermediate training) for a particular eval_file and labeling budget.
@@ -75,27 +79,6 @@ For example:
 ## Reference
 Eyal Shnarch, Ariel Gera, Alon Halfon, Lena Dankin, Leshem Choshen, Ranit Aharonov and Noam Slonim (2022). 
 [Cluster & Tune: Boost Cold Start Performance in Text Classification](https://aclanthology.org/2022.acl-long.526/). ACL 2022
-
-Please cite: 
-```
-@inproceedings{shnarch-etal-2022-cluster,
-    title = "Cluster & Tune: Boost Cold Start Performance in Text Classification",
-    author = "Shnarch, Eyal  and
-      Gera, Ariel  and
-      Halfon, Alon  and
-      Dankin, Lena  and
-      Choshen, Leshem  and
-      Aharonov, Ranit  and
-      Slonim, Noam",
-    booktitle = "Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
-    month = may,
-    year = "2022",
-    address = "Dublin, Ireland",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2022.acl-long.526",
-    pages = "7639--7653",
-}
-```
 
 ## License
 This work is released under the Apache 2.0 license. The full text of the license can be found in [LICENSE](LICENSE).
