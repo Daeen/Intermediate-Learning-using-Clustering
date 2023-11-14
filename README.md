@@ -33,6 +33,12 @@ The framework requires Python 3.8
   `cd intermediate-training-using-clustering`
 4. Install the project dependencies: `pip install -r requirements.txt`
 
+## Additional Installments
+1. Download cudatoolkit=11.2
+   `conda install cudatoolkit=11.2 -c conda-forge`
+2. Download cudnn=8.1.0
+conda install cudnn=8.1.0 -c conda-forge
+
    Windows users may also need to download the latest [Microsoft Visual C++ Redistributable for Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) in order to support tensorflow
 3. Run the python script `python download_and_process_datasets.py`.
 This script downloads and processes 8 datasets used in the paper.
